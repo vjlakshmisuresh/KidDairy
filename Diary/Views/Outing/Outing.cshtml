@@ -1,0 +1,62 @@
+﻿@*@model Diary.Outing*@
+
+@{
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Outing</title>
+</head>
+<body>
+    @using (Html.BeginForm("AddOuting","Outing"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Outing</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                @Html.Label("Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.Editor("Name", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessage("Name", "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Desciption", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.Editor("Desciption", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessage("Desciption", "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Outing Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.Editor("outingDate", new { htmlAttributes = new { @class = "form-control", @id = "datetimepicker1" } })
+                    @Html.ValidationMessage("outingDate", "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @{
+            Html.RenderPartial("_OutingList");
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kid's Dairy Applicaiton</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/Site.css">
+
+</head>
+<body>
+    <header>
+        <img class="header-image" src="~/Images/Main1.JPG" /><img class="header-image" src="~/Images/Main2.JPG" />
+        <img class="header-image" src="~/Images/Main1.JPG" /><img class="header-image" src="~/Images/Main2.JPG" />
+        <img class="header-image" src="~/Images/Main1.JPG" /><img class="header-image" src="~/Images/Main2.JPG" />
+        <img class="header-image" src="~/Images/Main1.JPG" />
+    </header>
+    <br/><br/>
+    <div class="container body-content">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/Home/Home">Home</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Food", "Index", "Food")</li>
+                    <li>@Html.ActionLink("Activity", "Index", "Activity")</li>
+                    <li>@Html.ActionLink("Sleep", "Index", "Sleep")</li>
+                    <li>@Html.ActionLink("Outing", "Index", "Outing")</li>
+                    <li>@Html.ActionLink("Diapers", "Index", "Diapers")</li>
+                </ul>
+            </div>
+        </nav>
+        @RenderBody()
+        <br /><br /><br />
+        <hr />
+        <footer>
+            <p>&copy; Vijaya Kid's Dairy Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
